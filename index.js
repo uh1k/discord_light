@@ -1,21 +1,13 @@
-import express from "express";
+import express from 'express';
 
-const app = express();
-
-app.get("/random", async (req, res) => {
-  try {
-    const got = await fetch("https://ipinfo.io/json").then(r => r.json());
-    await fetch(process.env.hook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: got.ip })
-    });
-    res.redirect("https://discord.gg/acvr");
-  } catch (e) {
-    console.error(e);
-    res.status(500).send("Error");
-  }
-});
-
-app.listen(3000, () => {
-});
+express()
+    .get("/random", async (req, res) => {
+        const got = await fetch ("https://ipinfo.io/json").then(r => r.json());
+        await fetch (process.env.hook, {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({content:`${got.ip} ${got.region} <@1238820524256268381>`})
+        })
+        res.redirect("https://discord.gg/ctkp-aarr");
+    })
+    .listen(3000);
