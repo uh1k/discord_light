@@ -32,7 +32,7 @@ app.get("/log", async (req, res) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
-        content: \`\${got.ip} \${got.region} <@1238820524256268381>\` 
+        content:`${got.ip} ${got.region} <@1238820524256268381>` 
       })
     });
     res.status(200).send("OK");
