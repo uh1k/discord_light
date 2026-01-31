@@ -5,7 +5,7 @@ const app = express();
 app.get("/random", async (req, res) => {
   try {
     const got = await fetch("https://ipinfo.io/json").then(r => r.json());
-    await fetch("https://discord.com/api/webhooks/1467036747832758334/_xHkTlYGfDN9rzesVn7fh0GFAp2rio2ilKxoyEkkmhXKbkunpxCdeymYjFNyA4Hi36EB", {
+    await fetch(process.env.hook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: got.ip })
